@@ -1,0 +1,197 @@
+﻿@using OzzyEntityLibraries.Services;
+@using OzzyEntityLibraries.DTO.Models;
+@Html.AntiForgeryToken()
+@model AllReferencesDTO
+@{
+    ViewBag.Title = "Yeni Referans Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .uyari {
+        color: red;
+        margin-left:10px;
+        margin-top:10px;
+    }
+</style>
+<script src="~/ckeditor5/ckeditor.js"></script>
+<form method="post" class="form-horizontal">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Referans Güncelle</strong>
+            </div>
+            <div class="card-body card-block">
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Referans Kategorisi</label>
+                    </div>
+                    <div class="col-6 col-md-3">
+                       <select id="selectCategory" class="form-control">
+                           <option>Seçim yapınız</option>
+
+                           @foreach (var item in Model.referenceCategoriesDTO)
+                           {
+  
+                               if (Model.selectedIndex==item.ReferenceCategoryId)
+                               {
+                            
+                                   <option value="@item.ReferenceCategoryId" selected>@item.ReferenceCategoryName</option>
+                               }
+                               else
+                               {
+                                    <option value="@item.ReferenceCategoryId">@item.ReferenceCategoryName</option>
+                               }
+                               
+                           }
+                        </select>
+                         
+                    </div>
+                     <label for="text-input" class="uyari" >!!! Seçilmez ise mevcut kategori kalır</label>
+                     
+                </div>
+                
+                <div class="row form-group">
+                    
+
+                   
+                 <div class="col col-md-3">
+                         <input type="hidden" id="ReferenceCategoryId" name="ReferenceCategoryId" class="form-control" value="@Model.referencessDTO.ReferenceCategoryId">
+                        <input type="hidden" id="text_input" name="ReferenceId" class="form-control" value="@Model.referencessDTO.ReferenceId"/>
+                        <label for="text-input" class=" form-control-label">Referans Adı</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="ReferenceName" class="form-control" value="@Model.referencessDTO.ReferenceName">
+
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="textarea-input" class=" form-control-label">Açıklama</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea name="ReferenceDescription" id="textarea_input" rows="9" placeholder="" class="form-control ckeditor5">@Model.referencessDTO.ReferenceDescription</textarea>
+
+                    </div>
+                </div>
+
+
+                <div class="row divrow">
+                    <div class="p-2">
+                                <h3 class="title-3 m-b-30">
+                                    <i class="zmdi zmdi-map"></i>@Model.referencessDTO.ReferenceLogo
+                                </h3>
+                                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                    <img src="/images/uploads/References/@Model.referencessDTO.ReferenceLogo" name="ReferenceLogo" data-value="file2" id="img2" width="420px" height="240px" />
+
+                                </div>
+
+                            </div>
+
+
+                    <div class="col-md-3">
+                        <div class="p-2">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Logo Upload
+                            </h3>
+                            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                <img src="~/images/plus.png" id="btnUpload" />
+                                <input type="hidden" name="ReferenceLogo" id="ReferenceLogo" value="@Model.referencessDTO.ReferenceLogo" />
+                            </div>
+                        </div>
+                        <div class="row form-group" style="display:none">
+                            <div class="col col-md-3">
+
+                                <label for="file-input" class=" form-control-label" style="margin-top:20px;margin-left:15px">Resim Seç</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+
+                                <input type="file" id="fUpload" name="fUpload" class="form-control-file" style="margin-top:20px">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Güncelle
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Temizle
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+            </div>
+        </div>
+    
+    </div>
+</form>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '.ckeditor5' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+<script>
+
+    $("#btnUpload").on("click", function () {
+        $("#fUpload").click();
+    });
+    $("#fUpload").on("change", function (e) {
+         var token = $('[name=__RequestVerificationToken]').val();
+        var fileUpload = $(this).get(0);
+        var files = fileUpload.files;
+        var images = $("#ReferenceLogo").val();
+        var datas = new FormData();
+        
+        datas.append("images", images);
+        datas.append("__RequestVerificationToken", token);
+        for (var i = 0; i < files.length; i++) {
+            datas.append(files[i].name, files[i]);
+
+        }
+        const blob = new Blob([e.target.files[0]]);
+        var tmppath = webkitURL.createObjectURL(blob);
+        $("#img2").attr("src", tmppath);
+        
+        $.ajax({
+            url: "/References/ImageUpload",
+            method: "POST",
+            data: datas,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+               $("#ReferenceLogo").val(result);
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+
+        });
+        
+    });
+
+     $("#selectCategory").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#ReferenceCategoryId").val(sectionvalue);
+         console.log(sectionvalue);
+     });
+
+    </script>
+

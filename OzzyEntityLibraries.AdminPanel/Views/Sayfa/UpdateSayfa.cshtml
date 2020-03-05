@@ -1,0 +1,220 @@
+﻿@using OzzyEntityLibraries.Services
+@using OzzyEntityLibraries.DTO.Models
+@Html.AntiForgeryToken()
+@model PagesDTO
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/ckeditor5/ckeditor.js"></script>
+<form method="post" class="form-horizontal">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Sayfa Güncelle</strong>
+            </div>
+            <div class="card-body card-block">
+
+ 
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <input type="hidden" id="PageId"class="form-control" name="PageId" value="@Model.PageId"/>
+                        <label for="text-input" class=" form-control-label">Sayfa Başlık</label> 
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="Pagetitle"  class="form-control" value="@Model.Pagetitle">
+
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="textarea-input" class=" form-control-label">Sayfa Yazısı</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea name="PageDescription" id="textarea_input" rows="9" placeholder="" class="form-control ckeditor5">@Model.PageDescription</textarea>
+
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Sayfa Url Adresi</label> 
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="PageUrl"  class="form-control" value="@Model.PageUrl">
+
+                    </div>
+                </div>
+
+                <div class="row divrow">
+
+                    @for (int i = 0; i < @Model.Photo.Split(',').Length; i++)
+                    {
+                        var resimadi = @Model.Photo.Split(',')[i];
+
+                            <div class="p-2">
+                                <h3 class="title-3 m-b-30">
+                                    <i class="zmdi zmdi-map"></i>@Model.Photo.Split(',')[i]
+                                </h3>
+                                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                    <img src="/images/uploads/Page/@Model.Photo.Split(',')[i]" name="Photo" data-value="file2" id="img2" width="420px" height="240px" />
+                                </div>
+                                 <a href="#" data-href="@resimadi" class="btn btn-outline-warning btn-sm btncikart" title="Güncelle" >Çıkart</a>
+                            </div>
+
+                    } 
+                         
+                  
+                    <div class="col-md-3">
+                        <div class="p-2">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Resim Upload
+                            </h3>
+                            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                <img src="~/images/plus.png" id="btnUpload" />
+                                <input type="hidden" name="Photo" id="Photo" value="@Model.Photo" />
+                            </div>
+                        </div>
+                        <div class="row form-group" style="display:none">
+                            <div class="col col-md-3">
+
+                                <label for="file-input" class=" form-control-label" style="margin-top:20px;margin-left:15px">Resim Seç</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+
+                                <input type="file" id="fUpload" name="fUpload" class="form-control-file" multiple="multiple" style="margin-top:20px">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Güncelle
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Temizle
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</form>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '.ckeditor5' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+<script>
+
+    $("#btnUpload").on("click", function () {
+        $("#fUpload").click();
+    });
+    $("#fUpload").on("change", function (e) {
+        var token = $('[name=__RequestVerificationToken]').val();
+        var fileUpload = $(this).get(0);
+        var files = fileUpload.files;
+        var images = $("#Photo").val();
+        var datas = new FormData();
+
+        datas.append("images", images);
+        datas.append("__RequestVerificationToken", token);
+
+        for (var i = 0; i < files.length; i++) {
+            datas.append(files[i].name, files[i]);
+
+            const blob = new Blob([files[i]]);
+            var tmppath = webkitURL.createObjectURL(blob);
+
+            var isim = files[i].name;
+            $('.divrow').prepend('<div class="p-2 divAppended"><h3 class="title-3 m-b-30"><i class="zmdi zmdi-map"></i>' + isim + '</h3><div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center"><img src="' + tmppath + '" name="Photo" data-value="file2" id="img2" width="420px" height="240px" /> </div> <a href="#" data-href="' + isim + '" class="btn btn-outline-warning btn-sm btncikart" title="Güncelle" >Çıkart</a></div>');
+        }
+
+
+
+        $.ajax({
+            url: "/Sayfa/ImageUpload",
+            method: 'POST',
+            data: datas,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                $("#Photo").val(result);
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+
+        });
+
+    });
+    function trimChar(string, charToRemove) {
+
+        while (string.charAt(0) == charToRemove) {
+            string = string.substring(1);
+        }
+        while (string.charAt(string.length - 1) == charToRemove) {
+            string = string.substring(0, string.length - 1);
+        }
+
+        return string;
+    }
+    $(".btncikart").on("click", function () {
+
+        var Id = $("#PageId").val();
+        var veri = $(this).data("href");
+
+        var test = $("#Photo").val();
+        test = test.replace(veri, "").replace(",,", ",");
+        test = trimChar(test, ',');
+        $("#Photo").val(test);
+        $(this).parent().remove();
+
+    });
+
+    //$(function myfunction() {
+    //    $("#btnUpload").on('click', function () {
+    //        var test = $("#fUpload");
+    //        var test2 = test[0].files.length;
+    //        var bilgiler = test[0].files;
+    //        var sonuc = "";
+    //        if (test2 > 0) {
+    //            //for (var i = 0; i < test2; i++) {
+    //            //    var DosyaAdi = bilgiler[i].name;
+    //            //    var DosyaBoyutu = bilgiler[i].size;
+    //            //    var Dosyaturu = bilgiler[i].type;
+    //            //    sonuc += "<li>" + DosyaAdi + " " + DosyaBoyutu + " bytes. Type :" + Dosyaturu + "</li>";
+    //            //}
+    //             for (var i = 0; i < test2; i++) {
+    //                var DosyaAdi = bilgiler[i].name;
+    //                 sonuc += DosyaAdi;
+
+
+    //            }
+    //             $("#img1").attr("src", sonuc);
+    //            alert(sonuc);
+
+    //        }
+    //    });
+
+
+
+
+</script>

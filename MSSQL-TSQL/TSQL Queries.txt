@@ -1,0 +1,587 @@
+1. Query Block
+
+Create Database OzzyEntityDateBase
+
+
+go
+
+------------------------------------
+
+2. Query Block
+
+create table UserRoles
+(
+  UserRoleID int not null identity(1,1),
+  UserRole nvarchar(500),
+  primary key (UserRoleID)
+)
+go
+
+create table Users
+(
+  UserID int not null identity(1,1),
+  UserRoleID int not null,
+  UserName nvarchar(500),
+  UserPassword nvarchar(500),
+  UserPhoto nvarchar(500),
+  NameSurname nvarchar(500),
+  IdentityNumber nvarchar(500),
+  Phone char(11),
+  Email nvarchar(500),
+  TerritoryID int,
+  RegionID int,
+  CountryID int,
+  primary key (UserID)
+)
+
+go
+
+Create table AboutUs
+(
+AboutUsID int not null identity(1,1),
+AboutUsTitle nvarchar(500),
+AboutUsDescription nvarchar(500),
+Photo nvarchar(500),
+primary key(AboutUsID)
+)
+
+go
+
+Create table Pages
+(
+ PageID int not null identity(1,1),
+ Pagetitle nvarchar(500),
+ PageDescription nvarchar(500),
+ Photo nvarchar(500), 
+ PageUrl nvarchar(500),
+ primary key (PageID)
+
+)
+
+go
+
+
+Create table Service
+(
+ ServiceID int not null identity(1,1),
+ ServiceTitle nvarchar(500),
+ ServiceDescription nvarchar(500),
+ Photo nvarchar(500),
+ primary key (ServiceID)
+
+)
+
+go
+
+
+Create table ReferenceCategories
+(
+ ReferenceCategoryID int not null identity(1,1),
+ ReferenceCategoryName nvarchar(500),
+ primary key (ReferenceCategoryID)
+
+)
+
+go
+
+
+Create table Referencess
+(
+ ReferenceID int not null identity(1,1),
+ ReferenceCategoryID int not null,
+ ReferenceName nvarchar(500),
+ ReferenceDescription nvarchar(500),
+ ReferenceLogo nvarchar(500),
+ primary key (ReferenceID)
+
+)
+
+go
+
+
+Create table GalleryCategories
+(
+ GalleryCategoryID int not null identity(1,1),
+ GalleryCategoryName nvarchar(500),
+ GalleryCategoryPhoto nvarchar(500),
+ primary key (GalleryCategoryID)
+
+)
+
+go
+
+
+Create table Galleries
+(
+ GalleryID int not null identity(1,1),
+ GalleryCategoryID int not null,
+ GalleryName nvarchar(500),
+ GalleryPhoto nvarchar(500),
+ primary key (GalleryID)
+
+)
+
+go
+
+
+Create table PostCategories
+(
+ PostCategoryID int  identity(1,1),
+ PostCategoryName nvarchar(500),
+ PostCategoryPhoto nvarchar(500),
+ primary key (PostCategoryID)
+
+)
+
+
+go
+
+Create table Posts
+(
+ PostID int not null identity(1,1),
+ PostCategoryID int not null,
+ PostTitle nvarchar(500),
+ PostDiscription nvarchar(500),
+ PostPhoto nvarchar(500), 
+ primary key (PostID)
+
+)
+
+Create table Comments
+(
+ CommentID int not null identity(1,1),
+ UserID int not null,
+ PostID int not null,
+ CommentTitle nvarchar(500),
+ CommentDiscription nvarchar(500),
+ primary key (CommentID)
+
+)
+
+go
+
+Create table Contact
+(
+ ContactID int not null identity(1,1),
+ Sender nvarchar(500),
+ ContactMessage nvarchar(500),
+ SendingDate nvarchar(500),
+ IsRead bit,
+ primary key (ContactID)
+
+)
+
+go
+
+create table ProductCategories
+(
+ ProductCategoryID int not null identity(1,1),
+ ProductCategoryName nvarchar(500),
+ ProductCategoryPhoto nvarchar(500),
+ primary key(ProductCategoryID)
+
+)
+
+go
+
+create table Products
+(
+ProductID int not null identity(1,1),
+SupplierID int not null,
+ProductCategoryID int not null,
+ProductName nvarchar(500),
+StockQuantity smallint,
+UnitPrice decimal,
+ShowCasePhoto nvarchar(500),
+ProductPhoto nvarchar(500),
+ 
+primary key(ProductID)
+)
+
+go
+
+create table Suppliers
+(
+SupplierID int not null identity(1,1),
+SupplierName nvarchar(500) 
+primary key(SupplierID)
+)
+
+
+
+go
+
+Create table Newsletters
+(
+ NewsletterID int not null identity(1,1),
+ Email nvarchar(500),
+ primary key (NewsletterID)
+
+)
+
+go
+
+Create table GeneralSettings
+(
+ GeneralSettingsID int not null identity(1,1) ,
+ WebSiteName nvarchar(500),
+ WebSiteAddress nvarchar(500),
+ Keywords nvarchar(500),
+ Email nvarchar(500),
+ EmailPassword nvarchar(500),
+ SmtpAddress nvarchar(500),
+ SmtpPort nvarchar(500),
+ CompanyAddress nvarchar(500),
+ Phone nvarchar(500),
+ SiteLogo nvarchar(500),
+ primary key (GeneralSettingsID)
+
+)
+
+go
+
+create table Employees
+(
+  EmployeeID int not null identity(1,1),
+  NameSurname nvarchar(500),
+  IdentityNumber nvarchar(500),
+  Birthday nvarchar(500),
+  HireDate nvarchar(500),
+  Title nvarchar(500),
+  Phone char(11),
+  Email nvarchar(500),
+  UserPhoto nvarchar(500),
+  TerritoryID int,
+  RegionID int,
+  CountryID int,
+  primary key (EmployeeID)
+)
+
+go
+
+Create table Customers
+(
+ CustomerID int not null identity(1,1),
+ TerritoryID int,
+ RegionID int ,
+ CountryID int,
+ CompanyName nvarchar(500),
+ ContactName nvarchar(500),
+ ContactTitle nvarchar(500),
+ Address nvarchar(500),
+ PostalCode nvarchar(500),
+ Phone nvarchar(500),
+ Fax nvarchar(500),
+ Email nvarchar(500),
+ primary key (CustomerID)
+
+)
+
+go
+
+Create table Shippers
+(
+ ShipperID int not null identity(1,1),
+ CompanyName nvarchar(500),
+ Phone nvarchar(500),
+ Email nvarchar(500),
+ primary key (ShipperID)
+
+)
+
+go
+
+Create table Orders
+(
+ OrderID int not null identity(1,1),
+ CustomerID int not null,
+ EmployeeID int not null,
+ ShipperID int not null,
+ OrderDate nvarchar(500),
+ RequiredDate nvarchar(500),
+ ShippingDate nvarchar(500),
+ ShippingCost nvarchar(500),
+ ShippingName nvarchar(500),
+ ShippingAddress nvarchar(500),
+ ShippingTerritoryID int not null,
+ ShippingRegionID int not null,
+ ShippingCountryID int not null,
+ ShippingPostalCode nvarchar(500),
+ primary key (OrderID)
+
+)
+
+go
+
+Create table OrderDetails
+(
+ OrderID int not null identity(1,1),
+ ProductID int not null,
+ UnitPrice decimal not null,
+ Quantity smallint not null,
+ Discount smallint not null,
+ primary key (OrderID)
+
+)
+
+go
+Create table Territories
+(
+ TerritoryID int not null identity(1,1),
+ RegionID int not null,
+ TerritoryName nvarchar(500),
+ primary key (TerritoryID)
+
+)
+
+go
+
+Create table Regions
+(
+ RegionID int not null identity(1,1),
+ CountryID int not null,
+ RegionName nvarchar(500),
+ primary key (RegionID)
+
+)
+
+go
+
+Create table Countries
+(
+ CountryID int not null identity(1,1),
+ CountryName nvarchar(500),
+ primary key (CountryID)
+
+)
+
+go
+
+
+
+--------------------------------------------------------------------------------
+
+3. Query Block
+
+Create View AllPosts
+as
+Select p.PostID,pc.PostCategoryName,p.PostTitle,p.PostDiscription,p.PostPhoto from Posts p inner join PostCategories pc on p.PostCategoryID=pc.PostCategoryID
+
+go
+
+Create View AllCommentsbyPost
+as
+Select c.CommentID, p.PostTitle,c.CommentTitle, c.CommentDiscription from Comments c inner join Posts p on c.PostID =p.PostID 
+
+go
+
+Create View AllCommentsbyUser
+as
+Select c.CommentID, c.CommentTitle, c.CommentDiscription from Comments c inner join Users u on c.UserID = u.UserID
+
+go
+
+Create View AllGalleries
+as
+Select g.GalleryID, gc.GalleryCategoryName, g.GalleryName, g.GalleryPhoto from Galleries g inner join GalleryCategories gc on gc.GalleryCategoryID=g.GalleryCategoryID
+
+go
+
+Create View AllReferences
+as
+Select r.ReferenceID, rc.ReferenceCategoryName, r.ReferenceName, r.ReferenceDescription, r.ReferenceLogo from Referencess r inner join ReferenceCategories rc on rc.ReferenceCategoryID=r.ReferenceCategoryID
+
+go
+
+Create view AllProducts
+as
+Select p.ProductID , pc.ProductCategoryName, p.ProductName, p.StockQuantity ,p.UnitPrice, p.ShowCasePhoto, p.ProductPhoto, s.SupplierName from Products p inner join ProductCategories pc on p.ProductCategoryID = pc.ProductCategoryID inner join Suppliers s on p.SupplierID=s.SupplierID
+
+go
+
+create view AllUsers
+as
+select u.UserID, ur.UserRole,u.UserName,u.UserPassword, u.NameSurname, u.Phone, u.Email, u.IdentityNumber, u.UserPhoto,t.TerritoryName,r.RegionName,c.CountryName from Users u inner join UserRoles ur on ur.UserRoleID = u.UserRoleID inner join Territories t on t.TerritoryID = u.TerritoryID inner join Regions r on r.RegionID=u.RegionID inner join Countries c on c.CountryID=u.CountryID
+
+go
+
+create view AllEmployees
+as
+select e.EmployeeID, e.NameSurname, e.IdentityNumber,e.Birthday,t.TerritoryName, r.RegionName, c.CountryName, e.HireDate, e.Title, e.Phone, e.Email, e.UserPhoto from Employees e inner join Territories t on e.TerritoryID = t.TerritoryID inner join Regions r on e.RegionID=r.RegionID inner join Countries c on e.CountryID=c.CountryID
+
+go
+
+create view AllCustomers
+as
+select c.CustomerID, c.CompanyName, c.ContactName, c.ContactTitle,  c.Address, t.TerritoryName, r.RegionName, cs.CountryName, c.PostalCode, c.Phone, c.Fax, c.Email  from Customers c inner join Territories t on t.TerritoryID = c.TerritoryID inner join Regions r on r.RegionID=c.RegionID inner join Countries cs on cs.CountryID=c.CountryID
+
+go
+
+create view AllOrders
+as
+select o.OrderID, o.OrderDate, o.RequiredDate, o.ShippingDate, o.ShippingCost, o.ShippingName, o.ShippingAddress, t.TerritoryName, r.RegionName, cs.CountryName, o.ShippingPostalCode from Orders o inner join Territories t on o.ShippingTerritoryID = t.TerritoryID inner join Regions r on o.ShippingRegionID=r.RegionID inner join Countries cs on o.ShippingCountryID=cs.CountryID
+
+go
+
+create view AllOrderDetails
+as
+select od.OrderID, p.ProductName, od.Quantity, od.UnitPrice,od.Discount from OrderDetails od inner join Products p on od.ProductID=p.ProductID inner join orders o on od.OrderID=o.OrderID
+
+go
+
+-----------------------------------------------------
+
+Inserting UserRole 
+
+Insert into UserRoles ("UserRole") values ('Admin')
+
+go
+-----------------------------------------------------
+Inserting User
+
+Insert into Users("UserRoleID","UserName","UserPassword","UserPhoto","NameSurname","IdentityNumber","Phone","Email","TerritoryID","RegionID","CountryID") values (1,'Admin','12345','avatar-big-01.png','Ozzy Ozmen Celik','12345678910','12345678910','admin@admin.com',1,35,1)
+
+go
+-----------------------------------------------------
+Inserting AboutUs
+
+INSERT INTO AboutUs values ('Who We Are?','Description About Us','AboutUs.jpg')
+
+go
+
+-----------------------------------------------------
+Inserting GeneralSettings
+
+INSERT INTO GeneralSettings ("WebSiteName","WebSiteAddress","Keywords","Email","EmailPassword","SmtpAddress","SmtpPort","CompanyAddress","Phone","SiteLogo") values ('Site Name','Web Site Address','Keywords','info@siteaddress.com','12345','smtp.gmail.com','587','company address','+902320000000','avatar-big-01.png')
+
+go
+-----------------------------------------------------
+Inserting Country
+
+INSERT INTO Countries values ('Türkiye')
+
+go
+-----------------------------------------------------
+Inserting Turkey Regions
+
+INSERT INTO Regions values (1, 'Adana'); 
+INSERT INTO Regions values (1, 'Adıyaman'); 
+INSERT INTO Regions values (1, 'Afyon'); 
+INSERT INTO Regions values (1, 'Ağrı'); 
+INSERT INTO Regions values (1, 'Amasya'); 
+INSERT INTO Regions values (1, 'Ankara'); 
+INSERT INTO Regions values (1, 'Antalya'); 
+INSERT INTO Regions values (1, 'Artvin'); 
+INSERT INTO Regions values (1, 'Aydın'); 
+INSERT INTO Regions values (1, 'Balıkesir'); 
+INSERT INTO Regions values (1, 'Bilecik'); 
+INSERT INTO Regions values (1, 'Bingöl'); 
+INSERT INTO Regions values (1, 'Bitlis'); 
+INSERT INTO Regions values (1, 'Bolu'); 
+INSERT INTO Regions values (1, 'Burdur'); 
+INSERT INTO Regions values (1, 'Bursa'); 
+INSERT INTO Regions values (1, 'Çanakkale'); 
+INSERT INTO Regions values (1, 'Çankırı'); 
+INSERT INTO Regions values (1, 'Çorum'); 
+INSERT INTO Regions values (1, 'Denizli'); 
+INSERT INTO Regions values (1, 'Diyarbakır'); 
+INSERT INTO Regions values (1, 'Edirne'); 
+INSERT INTO Regions values (1, 'Elazığ'); 
+INSERT INTO Regions values (1, 'Erzincan'); 
+INSERT INTO Regions values (1, 'Erzurum'); 
+INSERT INTO Regions values (1, 'Eskişehir'); 
+INSERT INTO Regions values (1, 'Gaziantep'); 
+INSERT INTO Regions values (1, 'Giresun'); 
+INSERT INTO Regions values (1, 'Gümüşhane'); 
+INSERT INTO Regions values (1, 'Hakkari'); 
+INSERT INTO Regions values (1, 'Hatay'); 
+INSERT INTO Regions values (1, 'Isparta'); 
+INSERT INTO Regions values (1, 'Mersin'); 
+INSERT INTO Regions values (1, 'İstanbul'); 
+INSERT INTO Regions values (1, 'İzmir'); 
+INSERT INTO Regions values (1, 'Kars'); 
+INSERT INTO Regions values (1, 'Kastamonu'); 
+INSERT INTO Regions values (1, 'Kayseri'); 
+INSERT INTO Regions values (1, 'Kırklareli'); 
+INSERT INTO Regions values (1, 'Kırşehir'); 
+INSERT INTO Regions values (1, 'Kocaeli'); 
+INSERT INTO Regions values (1, 'Konya'); 
+INSERT INTO Regions values (1, 'Kütahya'); 
+INSERT INTO Regions values (1, 'Malatya'); 
+INSERT INTO Regions values (1, 'Manisa'); 
+INSERT INTO Regions values (1, 'K.Maraş'); 
+INSERT INTO Regions values (1, 'Mardin'); 
+INSERT INTO Regions values (1, 'Muğla'); 
+INSERT INTO Regions values (1, 'Muş'); 
+INSERT INTO Regions values (1, 'Nevşehir'); 
+INSERT INTO Regions values (1, 'Niğde'); 
+INSERT INTO Regions values (1, 'Ordu'); 
+INSERT INTO Regions values (1, 'Rize'); 
+INSERT INTO Regions values (1, 'Sakarya'); 
+INSERT INTO Regions values (1, 'Samsun'); 
+INSERT INTO Regions values (1, 'Siirt'); 
+INSERT INTO Regions values (1, 'Sinop'); 
+INSERT INTO Regions values (1, 'Sivas'); 
+INSERT INTO Regions values (1, 'Tekirdağ'); 
+INSERT INTO Regions values (1, 'Tokat'); 
+INSERT INTO Regions values (1, 'Trabzon'); 
+INSERT INTO Regions values (1, 'Tunceli'); 
+INSERT INTO Regions values (1, 'Şanlıurfa'); 
+INSERT INTO Regions values (1, 'Uşak'); 
+INSERT INTO Regions values (1, 'Van'); 
+INSERT INTO Regions values (1, 'Yozgat'); 
+INSERT INTO Regions values (1, 'Zonguldak'); 
+INSERT INTO Regions values (1, 'Aksaray'); 
+INSERT INTO Regions values (1, 'Bayburt'); 
+INSERT INTO Regions values (1, 'Karaman'); 
+INSERT INTO Regions values (1, 'Kırıkkale'); 
+INSERT INTO Regions values (1, 'Batman'); 
+INSERT INTO Regions values (1, 'Şırnak'); 
+INSERT INTO Regions values (1, 'Bartın'); 
+INSERT INTO Regions values (1, 'Ardahan'); 
+INSERT INTO Regions values (1, 'Iğdır'); 
+INSERT INTO Regions values (1, 'Yalova'); 
+INSERT INTO Regions values (1, 'Karabük'); 
+INSERT INTO Regions values (1, 'Kilis'); 
+INSERT INTO Regions values (1, 'Osmaniye'); 
+INSERT INTO Regions values (1, 'Düzce'); 
+
+go
+
+----------------------------------------------------
+Inserting Turkey Territory
+
+INSERT INTO Territories values (35,'Aliağa');
+INSERT INTO Territories values (35,'Balçova');
+INSERT INTO Territories values (35,'Bayındır');
+INSERT INTO Territories values (35,'Bayraklı');
+INSERT INTO Territories values (35,'Bergama');
+INSERT INTO Territories values (35,'Beydağ');
+INSERT INTO Territories values (35,'Bornova');
+INSERT INTO Territories values (35,'Buca');
+INSERT INTO Territories values (35,'Çeşme');
+INSERT INTO Territories values (35,'Çiğli');
+INSERT INTO Territories values (35,'Dikili');
+INSERT INTO Territories values (35,'Foça');
+INSERT INTO Territories values (35,'Gaziemir');
+INSERT INTO Territories values (35,'Güzelbahçe');
+INSERT INTO Territories values (35,'Karabağlar');
+INSERT INTO Territories values (35,'Karaburun');
+INSERT INTO Territories values (35,'Karşıyaka');
+INSERT INTO Territories values (35,'Kemalpaşa');
+INSERT INTO Territories values (35,'Kınık');
+INSERT INTO Territories values (35,'Kiraz');
+INSERT INTO Territories values (35,'Konak');
+INSERT INTO Territories values (35,'Menderes');
+INSERT INTO Territories values (35,'Menemen');
+INSERT INTO Territories values (35,'Narlıdere');
+INSERT INTO Territories values (35,'Ödemiş');
+INSERT INTO Territories values (35,'Seferihisar');
+INSERT INTO Territories values (35,'Selçuk');
+INSERT INTO Territories values (35,'Tire');
+INSERT INTO Territories values (35,'Torbalı');
+INSERT INTO Territories values (35,'Urla');
+
+go
+
+----------------------------------------------------

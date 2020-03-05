@@ -1,0 +1,200 @@
+﻿@using OzzyEntityLibraries.Services
+@using OzzyEntityLibraries.DTO.Models
+@model IEnumerable<ReferenceCategoriesDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.clickedRed {
+  border: 1px solid;
+  color: red;
+
+}
+</style>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Referans Kategorileri</strong>
+        </div>
+        <div class="card-body card-block">
+            <form method="post" class="form-horizontal">
+
+                <div class="row form-group">
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="ReferenceCategoryName" class="form-control" value="">
+
+                    </div>
+                </div>
+
+
+                <div class="table-data__tool">
+
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small btnEkle" style="display:block">
+                            <i class="zmdi zmdi-plus"></i>Kategori Ekle
+                        </button>
+                
+                        <a href="#" data-id="" class="au-btn au-btn-icon au-btn--blue au-btn--small" id="btnGuncelle" style="display:none">
+                            <i class="zmdi zmdi-plus"></i>Kategori Güncelle
+                        </a>
+
+                    </div>
+                    
+                </div>
+                </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">Kategori Listesi</h3>
+
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>ID</th>
+                                    <th>Kategori Adı</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                                 
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="tr-shadow">
+                                     
+                                        <td><span>@item.ReferenceCategoryId</span></td>
+                                        <td><span>@item.ReferenceCategoryName</span></td> 
+                                        
+                                        <td>
+                                            <div class="table-data-feature">
+                                              <button class="item btnGuncelle" data-toggle="tooltip" data-placement="top" data-id='@item.ReferenceCategoryId' title="Güncelle">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </button>
+                                                <button class="item btnSil" data-placement="top" title="Sil" data-id='@item.ReferenceCategoryId' data-toggle="modal" data-target="#myModal">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="spacer"></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                                   <!-- END DATA TABLE -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Silme işlemini modal a yaptırıyorum -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Referans Kategorisini Sil</h4>
+            </div>
+            <div class="modal-body">
+                <p>Silmek İstediğinizden Emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-id="" id="btnSil" data-dismiss="modal">Sil</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<script>
+
+    /* Delete işlemim */
+
+    var csskodum;
+    var veri;
+    $(".btnSil").on("click", function () {
+        $("#btnSil").data("id", $(this).data("id"));
+
+        veri = $(this).parents("tr.tr-shadow");
+    });
+
+    $("#btnSil").on("click", function () {
+        var Id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "/ReferenceCategory/DeleteReferenceCategory",
+            data: { id: Id },
+            dataType: false,
+            dataContent: false,
+            success: function (data) {
+
+                if (!data) {
+                    alert('Veri silinirken bir hata oluştu!');
+                } else {
+                    veri.remove();
+                }
+            },
+        });
+    });
+
+    /* Update işlemim */
+
+    $(".btnGuncelle").on("click", function () {
+        $("#btnGuncelle").css("display", "block");
+         $(".btnEkle").css("display", "none ");
+
+        if ($(this).parents("tr.tr-shadow").hasClass('clickedRed')) {
+            $(this).parents("tr.tr-shadow").removeClass('clickedRed');
+        }
+        else {
+            $(this).parents("tr.tr-shadow").addClass('clickedRed');
+        }
+        
+        var spans = $(this).parents("tr.tr-shadow").find("td span");
+        
+
+        var gelenId = spans.eq(0).text();
+        var gelenVeri = spans.eq(1).text();
+        $("#text_input").val(gelenVeri);
+        $("#btnGuncelle").data("id", gelenId);
+
+    });
+
+    $("#btnGuncelle").on("click", function () {
+
+
+        var id = $(this).data("id");
+        var name = $("#text_input").val();
+        var veri =
+        {
+            ReferenceCategoryId: id,
+            ReferenceCategoryName: name
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/ReferenceCategory/UpdateReferenceCategory",
+            data: veri,
+            dataType: false,
+            dataContent: false,
+            success: function (data) {
+                window.location.href = "/ReferenceCategory";
+            }
+        });
+        
+    });
+
+
+
+   </script>

@@ -1,0 +1,8 @@
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/bin/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.deps.json
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/bin/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.dll
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/bin/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.pdb
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.csprojAssemblyReference.cache
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.AssemblyInfoInputs.cache
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.AssemblyInfo.cs
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.dll
+/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/Release/netcoreapp3.0/OzzyEntityLibraries.DTO.pdb

@@ -1,0 +1,13 @@
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.deps.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.runtimeconfig.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.runtimeconfig.dev.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.ORM.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.ORM.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.csprojAssemblyReference.cache
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.AssemblyInfoInputs.cache
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.AssemblyInfo.cs
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.csproj.CopyComplete
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.pdb

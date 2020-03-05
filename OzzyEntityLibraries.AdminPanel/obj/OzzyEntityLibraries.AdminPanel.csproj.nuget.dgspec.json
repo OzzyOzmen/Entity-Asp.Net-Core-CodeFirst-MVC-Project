@@ -1,0 +1,343 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/OzzyEntityLibraries.AdminPanel.csproj": {}
+  },
+  "projects": {
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/OzzyEntityLibraries.AdminPanel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/OzzyEntityLibraries.AdminPanel.csproj",
+        "projectName": "OzzyEntityLibraries.AdminPanel",
+        "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/OzzyEntityLibraries.AdminPanel.csproj",
+        "packagesPath": "/Users/ozzy/.nuget/packages/",
+        "outputPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ozzy/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj"
+              },
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/OzzyEntityLibraries.Services.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/OzzyEntityLibraries.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj",
+        "projectName": "OzzyEntityLibraries.DTO",
+        "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj",
+        "packagesPath": "/Users/ozzy/.nuget/packages/",
+        "outputPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ozzy/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj",
+        "projectName": "OzzyEntityLibraries.ORM",
+        "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj",
+        "packagesPath": "/Users/ozzy/.nuget/packages/",
+        "outputPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ozzy/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/OzzyEntityLibraries.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/OzzyEntityLibraries.Repository.csproj",
+        "projectName": "OzzyEntityLibraries.Repository",
+        "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/OzzyEntityLibraries.Repository.csproj",
+        "packagesPath": "/Users/ozzy/.nuget/packages/",
+        "outputPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ozzy/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/OzzyEntityLibraries.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/OzzyEntityLibraries.Services.csproj",
+        "projectName": "OzzyEntityLibraries.Services",
+        "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/OzzyEntityLibraries.Services.csproj",
+        "packagesPath": "/Users/ozzy/.nuget/packages/",
+        "outputPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ozzy/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.DTO/OzzyEntityLibraries.DTO.csproj"
+              },
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.ORM/OzzyEntityLibraries.ORM.csproj"
+              },
+              "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/OzzyEntityLibraries.Repository.csproj": {
+                "projectPath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.Repository/OzzyEntityLibraries.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

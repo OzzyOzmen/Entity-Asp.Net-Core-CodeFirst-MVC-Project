@@ -1,0 +1,314 @@
+﻿@using OzzyEntityLibraries.Services;
+@using OzzyEntityLibraries.DTO.Models;
+@Html.AntiForgeryToken()
+@model AllUserDTO
+@{
+    ViewBag.Title = "Yeni Müşteri Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<form method="post" class="form-horizontal">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Yeni Kullanıcı Ekle</strong>
+            </div>
+            <div class="card-body card-block">
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+
+                        <input type="hidden" id="text_input" name="UserId" class="form-control" value="@Model.usersDTO.UserId"/>
+                        
+                        <label for="text-input" class=" form-control-label">Kullanıcı Adı</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="UserName" class="form-control" value="@Model.usersDTO.UserName">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Kullanıcı Türü</label>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <select id="selectuserRole" class="form-control">
+                            <option>Seçim yapınız</option>
+
+                             @foreach (var item in Model.userRolesDTO)
+                           {
+  
+                               if (Model.selectedIndex==item.UserRoleId)
+                               {
+                            
+                                   <option value="@item.UserRoleId" selected>@item.UserRole</option>
+
+                                    
+                                 }
+                                 else
+                                 {
+                                    <option value="@item.UserRoleId">@item.UserRole</option>
+                               }
+                               
+                           }
+                           
+
+                        </select>
+                       <input type="hidden" id="UserRoleId" name="UserRoleId" class="form-control" value="@Model.usersDTO.UserRoleId">
+                          <label for="text-input" class="uyari" >!!! Seçilmez ise mevcut olan kalır</label>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Kullanıcı Parolası</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="password" id="text_input" name="UserPassword" class="form-control" value="@Model.usersDTO.UserPassword">
+
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Müşteri AdSoyadı</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="NameSurname" class="form-control" value="@Model.usersDTO.NameSurname">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">TC Kimlik No</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="IdentityNumber" class="form-control" value="@Model.usersDTO.IdentityNumber">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Kullanıcı Telefon</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="Phone" class="form-control" value="@Model.usersDTO.Phone">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Kullanıcı Email</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="email" id="text_input" name="Email" class="form-control" value="@Model.usersDTO.Email">
+
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Ülke</label>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <select id="selectCountry" class="form-control">
+                            <option>Seçim yapınız</option>
+
+                             @foreach (var item in Model.countriesDTOs)
+                           {
+  
+                               if (Model.selectedIndex2==item.CountryId)
+                               {
+                            
+                                   <option value="@item.CountryId" selected>@item.CountryName</option>
+
+                                     
+                                 }
+                                 else
+                                 {
+                                    <option value="@item.CountryId">@item.CountryName</option>
+                               }
+                               
+                           }
+
+                        </select>
+                        <input type="hidden" id="CountryId" name="CountryId" class="form-control" value="@Model.usersDTO.CountryId">
+                        <label for="text-input" class="uyari" >!!! Seçilmez ise mevcut olan kalır</label>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Şehir</label>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <select id="selectRegion" class="form-control">
+                            <option>Seçim yapınız</option>
+
+                             @foreach (var item in Model.regionsDTOs)
+                           {
+  
+                               if (Model.selectedIndex3==item.RegionId)
+                               {
+                            
+                                   <option value="@item.RegionId" selected>@item.RegionName</option>
+
+                                     
+                                 }
+                                 else
+                                 {
+                                    <option value="@item.RegionId">@item.RegionName</option>
+                               }
+                               
+                           }
+                        </select>
+                        <input type="hidden" id="RegionId" name="RegionId" class="form-control" value="@Model.usersDTO.RegionId">
+                        <label for="text-input" class="uyari" >!!! Seçilmez ise mevcut olan kalır</label>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">İlçe</label>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <select id="selectTerritory" class="form-control">
+                            <option>Seçim yapınız</option>
+
+                             @foreach (var item in Model.territoriesDTOs)
+                           {
+  
+                               if (Model.selectedIndex==item.TerritoryId)
+                               {
+                            
+                                   <option value="@item.TerritoryId" selected>@item.TerritoryName</option>
+
+                                     
+                                 }
+                                 else
+                                 {
+                                    <option value="@item.TerritoryId">@item.TerritoryName</option>
+                               }
+                               
+                           }
+                        </select>
+                        <input type="hidden" id="TerritoryId" name="TerritoryId" class="form-control" value="@Model.usersDTO.TerritoryId">
+                        <label for="text-input" class="uyari" >!!! Seçilmez ise mevcut olan kalır</label>
+                    </div>
+                </div>
+
+
+                <div class="row divrow">
+
+                       <div class="p-2">
+                                <h3 class="title-3 m-b-30">
+                                    <i class="zmdi zmdi-map"></i>@Model.usersDTO.UserPhoto
+                                </h3>
+                                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                    <img src="/images/uploads/Users/@Model.usersDTO.UserPhoto" name="UserPhoto" data-value="file2" id="img2" width="420px" height="240px" />
+
+                                </div>
+                            </div>
+                    <div class="col-md-3">
+                        <div class="p-2">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Resim Upload
+                            </h3>
+                            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                <img src="~/images/plus.png" id="btnUpload" />
+                                <input type="hidden" name="UserPhoto" id="UserPhoto" value="" />
+                            </div>
+                        </div>
+                        <div class="row form-group" style="display:none">
+                            <div class="col col-md-3">
+
+                                <label for="file-input" class=" form-control-label" style="margin-top:20px;margin-left:15px">Resim Seç</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+
+                                <input type="file" id="fUpload" name="fUpload" class="form-control-file" style="margin-top:20px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Ekle
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Temizle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<script>
+
+   $("#btnUpload").on("click", function () {
+        $("#fUpload").click();
+    });
+    $("#fUpload").on("change", function (e) {
+         var token = $('[name=__RequestVerificationToken]').val();
+        var fileUpload = $(this).get(0);
+        var files = fileUpload.files;
+        var images = $("#UserPhoto").val();
+        var datas = new FormData();
+        
+        datas.append("images", images);
+        datas.append("__RequestVerificationToken", token);
+        for (var i = 0; i < files.length; i++) {
+            datas.append(files[i].name, files[i]);
+
+        }
+        const blob = new Blob([e.target.files[0]]);
+        var tmppath = webkitURL.createObjectURL(blob);
+        $("#img2").attr("src", tmppath);
+
+        $.ajax({
+            url: "/Users/ImageUpload",
+            method: "POST",
+            data: datas,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                $("#UserPhoto").val(result);
+                $(".imgAppended").css("opacity", "1");
+            },
+            error: function (err) {
+                alert(err.statusText);
+                $(".divAppended").remove();
+            }
+
+        });
+
+    });
+
+
+    $("#selectuserRole").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#UserRoleId").val(sectionvalue);
+    });
+    $("#selectTerritory").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#TerritoryId").val(sectionvalue);
+    });
+    $("#selectRegion").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#RegionId").val(sectionvalue);
+    });
+    $("#selectCountry").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#CountryId").val(sectionvalue);
+    });</script>

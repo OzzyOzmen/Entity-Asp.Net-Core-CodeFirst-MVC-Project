@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{AEC652D4-0A12-4E4D-BD9D-E44D82129FC4}|Default">
+  <MonoDevelop.Ide.ItemProperties.OzzyEntityLibraries.AdminPanel PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OzzyEntityLibraries" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/Controllers/GeneralSettingController.cs" relfile="OzzyEntityLibraries.AdminPanel/Controllers/GeneralSettingController.cs" line="36" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,164 @@
+﻿@using OzzyEntityLibraries.Services;
+@using OzzyEntityLibraries.DTO.Models;
+@Html.AntiForgeryToken()
+@model IEnumerable<PostCategoriesDTO>
+@{
+    ViewBag.Title = "Yeni Referans Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/ckeditor5/ckeditor.js"></script>
+<form method="post" class="form-horizontal">
+  
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Yeni Yazı Ekle</strong>
+            </div>
+            <div class="card-body card-block">
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Yazı Kategorisi</label>
+                    </div>
+                    
+                    <div class="col-6 col-md-3">
+                        <select id="selectCategory" class="form-control">
+                             <option>Seçim yapınız</option>
+
+                            @foreach (var item in Model)
+                            {
+                                 <option value="@item.PostCategoryId">@item.PostCategoryName</option>
+                               
+                            }
+                           
+                        </select>
+                         <input type="hidden" id="PostCategoryId" name="PostCategoryId" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Yazı Adı</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="PostTitle" class="form-control" value="">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="textarea-input" class=" form-control-label">Yazı Açıklama</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea name="PostDiscription" id="textarea_input" rows="9" placeholder="" class="form-control ckeditor5"></textarea>
+
+                    </div>
+                </div>
+
+                 <div class="row divrow">
+
+
+
+                    <div class="col-md-3">
+                        <div class="p-2">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-map"></i>Resim Upload
+                            </h3>
+                            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center">
+                                <img src="~/images/plus.png" id="btnUpload" />
+                                <input type="hidden" name="PostPhoto" id="PostPhoto" value="" />
+                            </div>
+                        </div>
+                        <div class="row form-group" style="display:none">
+                            <div class="col col-md-3">
+
+                                <label for="file-input" class=" form-control-label" style="margin-top:20px;margin-left:15px">Resim Seç</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+
+                                <input type="file" id="fUpload" name="fUpload" class="form-control-file" style="margin-top:20px" multiple="multiple">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Ekle
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Temizle
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '.ckeditor5' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+<script>
+    $("#btnUpload").on("click", function () {
+        $("#fUpload").click();
+    });
+     $("#fUpload").on("change", function (e) {
+       var token = $('[name=__RequestVerificationToken]').val();
+        var fileUpload = $(this).get(0);
+        var files = fileUpload.files;
+         var datas = new FormData();
+         datas.append("__RequestVerificationToken", token);
+        for (var i = 0; i < files.length; i++) {
+            datas.append(files[i].name, files[i]);
+            const blob = new Blob([files[i]]);
+            var tmppath = webkitURL.createObjectURL(blob);
+
+             var isim = files[i].name;
+            $('.divrow').prepend('<div class="p-2 divAppended" id="divresim_' + (i + 1) + '" style="display:block;"><h3 class="title-3 m-b-30" id="baslikid_' + (i + 1) + '"><i class="zmdi zmdi-map">' + isim + '</i></h3><div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 p-2 text-center"><img src="' + tmppath + '" name="PostPhoto" data-value="file2" style="opacity:0.3" class="img2 imgAppended" id="img_' + (i + 1) + '" width="420px" height="240px" /></div></div>');
+
+        }
+
+
+        $.ajax({
+            url: "/Post/ImageUpload",
+            method: "POST",
+            data: datas,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                $("#PostPhoto").val(result);
+                $(".imgAppended").css("opacity","1");
+            },
+            error: function (err) {
+                alert(err.statusText);
+                 $(".divAppended").remove();
+            }
+
+        });
+
+    });
+
+
+    $("#selectCategory").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#PostCategoryId").val(sectionvalue);
+         console.log(sectionvalue);
+    });
+
+</script>

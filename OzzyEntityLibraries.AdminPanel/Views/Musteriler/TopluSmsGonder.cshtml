@@ -1,0 +1,155 @@
+﻿@using OzzyEntityLibraries.DTO.Models
+@model IEnumerable<CustomersDTO>
+
+@{
+    ViewBag.Title = "Toplu Sms Gönder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string AllPhones="";
+    foreach (var item in Model)
+    {
+        AllPhones += item.Phone.ToString()+ ",";
+       
+    }
+}
+
+
+<script src="~/ckeditor5/ckeditor.js"></script>
+<form method="post" class="form-horizontal">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Toplu Sms Gönder</strong>
+            </div>
+            <div class="card-body card-block">
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Kullanici SmS Kodu</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="UserCode" class="form-control" value="">
+
+                    </div>
+                </div>
+
+                  <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Tek Müşteri Seç</label>
+                    </div>
+                    
+                    <div class="col-6 col-md-3">
+                        <select id="selectCustomer" class="form-control">
+                             <option>Seçim yapınız</option>
+
+                            @foreach (var item in Model)
+                            {
+                                 <option value="@item.Phone">@item.ContactName</option>
+                               
+                            }
+                           
+                        </select>
+                         <input type="hidden" id="Phone" name="Phone" class="form-control" value="@AllPhones">
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Bütün Müşterileri Seç</label>
+                    </div>
+                    
+                    <div class="col-6 col-md-3">
+                     
+                      <a href="#"class="btn btn-outline-warning btn-sm btnHepsiniSec" title="HepsiniSec" >HepsiniSec</a>
+                        
+                         <input type="hidden" id="Phone" name="Phone" class="form-control" value="">
+                    </div>
+                </div>
+
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Sms Mesaj Türü</label>
+                    </div>
+                    
+                    <div class="col-6 col-md-3">
+                        <select id="selectMesajTur" class="form-control">
+                             <option>Seçim yapınız</option>
+                             <option value="Normal">Normal</option>
+                            <option value="Türkçe">Türkçe</option>
+                            
+                        </select>
+                         <input type="hidden" id="CharacterType" name="CharacterType" class="form-control" value="">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Orjinatör Başlık</label>
+                    </div>
+
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text_input" name="OrginatorTitle" class="form-control" value="">
+
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="textarea-input" class=" form-control-label">SMS Mesajınız</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <textarea name="SmsDescription" id="textarea_input" rows="9" placeholder="" class="form-control ckeditor5"></textarea>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> SMS Gönder
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                            <i class="fa fa-ban"></i> Temizle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '.ckeditor5' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+<script>
+    $("#selectCustomer").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#Phone").val(sectionvalue);
+        console.log(sectionvalue);
+    });
+   
+    $(".btnHepsiniSec").on("click", function () {
+
+        //$("#Phone").val(AllPhones);
+        console.log(@AllPhones);
+    });
+
+
+
+    $("#selectMesajTur").on("change", function () {
+        var sectionvalue = $(this).val();
+        $("#CharacterType").val(sectionvalue);
+        console.log(sectionvalue);
+    });
+  </script>

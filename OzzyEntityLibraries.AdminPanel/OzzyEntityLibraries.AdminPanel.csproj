@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\OzzyEntityLibraries.DTO\OzzyEntityLibraries.DTO.csproj" />
+    <ProjectReference Include="..\OzzyEntityLibraries.Services\OzzyEntityLibraries.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\vendor\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\lib\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\AboutUs\" />
+    <Folder Include="Views\ReferenceCategory\" />
+    <Folder Include="Views\Hizmetler\" />
+    <Folder Include="Views\Gallery\" />
+    <Folder Include="Views\GalleryCategory\" />
+    <Folder Include="Views\PostCategory\" />
+    <Folder Include="Views\Post\" />
+    <Folder Include="Views\SiteSettings\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Sayfa\" />
+    <Folder Include="wwwroot\images\uploads\Page\" />
+    <Folder Include="wwwroot\images\uploads\AboutUs\" />
+    <Folder Include="wwwroot\images\uploads\Gallery\" />
+    <Folder Include="wwwroot\images\uploads\GalleryCategory\" />
+    <Folder Include="wwwroot\images\uploads\Hizmetler\" />
+    <Folder Include="wwwroot\images\uploads\Home\" />
+    <Folder Include="wwwroot\images\uploads\Post\" />
+    <Folder Include="wwwroot\images\uploads\PostCategory\" />
+    <Folder Include="wwwroot\images\uploads\ReferenceCategory\" />
+    <Folder Include="wwwroot\images\uploads\References\" />
+    <Folder Include="wwwroot\images\uploads\Sayfa\" />
+    <Folder Include="wwwroot\images\uploads\SiteLogo\" />
+    <Folder Include="Views\Musteriler\" />
+    <Folder Include="Views\Users\" />
+    <Folder Include="wwwroot\images\uploads\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\ckeditor\plugins\icons_hidpi.png" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Remove="wwwroot\js\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Remove="wwwroot\images\uploads\Gallery\hakkimda.jpg" />
+    <Content Remove="wwwroot\images\uploads\Post\hakkimda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Sayfalar\UpdateSayfacshtml" />
+  </ItemGroup>
+</Project>

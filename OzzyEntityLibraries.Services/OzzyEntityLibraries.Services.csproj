@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\OzzyEntityLibraries.Repository\OzzyEntityLibraries.Repository.csproj" />
+    <ProjectReference Include="..\OzzyEntityLibraries.DTO\OzzyEntityLibraries.DTO.csproj" />
+    <ProjectReference Include="..\OzzyEntityLibraries.ORM\OzzyEntityLibraries.ORM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

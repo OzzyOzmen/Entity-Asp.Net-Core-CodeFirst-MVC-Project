@@ -1,0 +1,17 @@
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.deps.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.runtimeconfig.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.runtimeconfig.dev.json
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.DTO.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.ORM.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.Repository.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.DTO.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/bin/Debug/netcoreapp3.0/OzzyEntityLibraries.ORM.pdb
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.csprojAssemblyReference.cache
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.AssemblyInfoInputs.cache
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.AssemblyInfo.cs
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.csproj.CopyComplete
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.dll
+/Users/ozzy/Documents/VS Code Projects/OzzyEntityLibraries/OzzyEntityLibraries.Services/obj/Debug/netcoreapp3.0/OzzyEntityLibraries.Services.pdb

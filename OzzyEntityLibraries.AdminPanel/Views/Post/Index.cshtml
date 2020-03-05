@@ -1,0 +1,137 @@
+﻿@using OzzyEntityLibraries.Services
+@using OzzyEntityLibraries.DTO.Models
+@model IEnumerable<PostsDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.clickedRed {
+  border: 1px solid;
+  color: red;
+
+}
+</style>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Yazılar</strong>
+        </div>
+        <div class="card-body card-block">
+       
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">Yazı Listesi</h3>
+
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>ID</th>
+                                    <th>Kategory ID</th>
+                                    <th>Yazı Başlık</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                                 
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="tr-shadow">
+                                     
+                                        <td><span>@item.PostId</span></td>
+                                        <td><span>@item.PostCategoryId</span></td>
+                                        <td><span>@item.PostTitle</span></td>
+                                                       
+                                        <td>
+                                            <div class="table-data-feature">
+                                                  <a href="~/Post/UpdatePost/@item.PostId" class="item" title="Güncelle" >
+                                                    <i class="zmdi zmdi-edit"></i>
+                                               </a>
+                                                <button class="item btnSil" data-placement="top" title="Sil" data-id='@item.PostId' data-toggle="modal" data-target="#myModal">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="spacer"></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                                   <!-- END DATA TABLE -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Silme işlemini modal a yaptırıyorum -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Yazıyı Sil</h4>
+            </div>
+            <div class="modal-body">
+                <p>Silmek İstediğinizden Emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-id="" id="btnSil" data-dismiss="modal">Sil</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<script>
+
+    /* Delete işlemim */
+
+    var csskodum;
+    var veri;
+    $(".btnSil").on("click", function () {
+
+         if ($(this).parents("tr.tr-shadow").hasClass('clickedRed')) {
+            $(this).parents("tr.tr-shadow").removeClass('clickedRed');
+        }
+        else {
+            $(this).parents("tr.tr-shadow").addClass('clickedRed');
+         }
+
+        $("#btnSil").data("id", $(this).data("id"));
+
+        veri = $(this).parents("tr.tr-shadow");
+    });
+
+    $("#btnSil").on("click", function () {
+        var Id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "/Post/DeletePostByID",
+            data: { id: Id },
+            dataType: false,
+            dataContent: false,
+            success: function (data) {
+
+                if (!data) {
+                    alert('Veri silinirken bir hata oluştu!');
+                } else {
+                    veri.remove();
+                }
+            },
+        });
+    });
+
+   
+   </script>

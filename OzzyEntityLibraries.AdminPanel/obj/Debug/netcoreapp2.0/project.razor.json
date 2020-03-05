@@ -1,0 +1,135 @@
+{
+  "FilePath": "/Users/ozzy/Projects/OzzyEntityLibraries/OzzyEntityLibraries.AdminPanel/OzzyEntityLibraries.AdminPanel.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": "OzzyEntityLibraries.AdminPanel",
+  "Documents": [
+    {
+      "FilePath": "Views/References/AddNewReferences.cshtml",
+      "TargetPath": "Views/References/AddNewReferences.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Post/AddNewPost.cshtml",
+      "TargetPath": "Views/Post/AddNewPost.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/References/UpdateReferences.cshtml",
+      "TargetPath": "Views/References/UpdateReferences.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Post/Index.cshtml",
+      "TargetPath": "Views/Post/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Gallery/Index.cshtml",
+      "TargetPath": "Views/Gallery/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Hizmetler/UpdateHizmet.cshtml",
+      "TargetPath": "Views/Hizmetler/UpdateHizmet.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Hizmetler/Index.cshtml",
+      "TargetPath": "Views/Hizmetler/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/ReferenceCategory/Index.cshtml",
+      "TargetPath": "Views/ReferenceCategory/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Gallery/UpdateGallery.cshtml",
+      "TargetPath": "Views/Gallery/UpdateGallery.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/References/Index.cshtml",
+      "TargetPath": "Views/References/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Post/UpdatePost.cshtml",
+      "TargetPath": "Views/Post/UpdatePost.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Hizmetler/AddNewHizmet.cshtml",
+      "TargetPath": "Views/Hizmetler/AddNewHizmet.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/GalleryCategory/Index.cshtml",
+      "TargetPath": "Views/GalleryCategory/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/PostCategory/Index.cshtml",
+      "TargetPath": "Views/PostCategory/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/GeneralSettings/Index.cshtml",
+      "TargetPath": "Views/GeneralSettings/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/AboutUs/Index.cshtml",
+      "TargetPath": "Views/AboutUs/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Gallery/AddNewGallery.cshtml",
+      "TargetPath": "Views/Gallery/AddNewGallery.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/Error.cshtml",
+      "TargetPath": "Views/Shared/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
+  "SerializationFormat": "0.2"
+}
