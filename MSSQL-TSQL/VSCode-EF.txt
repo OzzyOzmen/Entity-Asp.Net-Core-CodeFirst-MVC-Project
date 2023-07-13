@@ -14,4 +14,4 @@
   
 
 
-dotnet ef dbcontext scaffold "Server=sql.poseidon.domainhizmetleri.com;Database=birlikte_Ozzy;User=birlikte_Ozzy;Password=Ozmenburhan.2019;" Microsoft.EntityFrameworkCore.SqlServer -c OzzyEntityDataBaseContext -o Models
+dotnet ef dbcontext scaffold "Server=server_addressDatabase=db_name;User=db_user;Password=db_password;" Microsoft.EntityFrameworkCore.SqlServer -c OzzyEntityDataBaseContext -o Models
